@@ -46,7 +46,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        dataLoad()
+        dataLoad()
     }
     
     override func viewDidLoad() {
