@@ -42,27 +42,28 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     var num: [Item]?
     var currentLocation: CLLocation!
     var locManager = CLLocationManager()
-
+    var country: String?
+    var isUpdatingLocation = true
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        dataLoad()
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+        locManager.startUpdatingLocation()
     }
     
     override func viewDidLoad() {
-        self.dataLoad()
         tableView.registerCell(AppCell.self )
+//        tableView.registerCell(CustomeCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 80
         tableView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        
-        getAddressFromLatLon(pdblLatitude: "\(currentLocation.coordinate.latitude )", withLongitude: "\(currentLocation.coordinate.longitude)")
     }
     
     func dataLoad()  {
-        guard let url = URL(string: "https://muslimsalat.com/daily.json?key=496d474de67f4950ad3119c2c6f96351") else { return }
+        guard let url = URL(string: "https://muslimsalat.com/\(self.country ?? "")/daily.json?key=496d474de67f4950ad3119c2c6f96351") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let datas = data else { return }
@@ -103,12 +104,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
                 
                 if pm.count > 0 {
                     let pm = placemarks![0]
-                    print(pm.country)
-                    print(pm.locality)
-                    print(pm.subLocality)
-                    print(pm.thoroughfare)
-                    print(pm.postalCode)
-                    print(pm.subThoroughfare)
+                    self.country = pm.locality
                     var addressString : String = ""
                     if pm.subLocality != nil {
                         addressString = addressString + pm.subLocality! + ", "
@@ -125,12 +121,9 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
                     if pm.postalCode != nil {
                         addressString = addressString + pm.postalCode! + " "
                     }
-                    
-                    
-                    print(addressString)
                 }
         })
-        
+        self.dataLoad()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,12 +133,11 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
         cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        cell.selectionStyle = .none
         switch indexPath.row {
         case 0:
-            let location = LocationsStorage.shared.locations[indexPath.row]
-            cell.textLabel?.numberOfLines = 3
-            cell.textLabel?.text = location.description
-            cell.detailTextLabel?.text = location.dateString
+            cell.textLabel?.text = self.country
+            cell.accessoryType = .checkmark
         case 1:
             cell.textLabel?.text = "Fajr        : \(self.eJadwal?.items?.first?.fajr ?? "")"
         case 2:
@@ -154,12 +146,25 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
             cell.textLabel?.text = "Asr         : \(self.eJadwal?.items?.first?.asr ?? "")"
         case 4:
             cell.textLabel?.text = "Magrib      : \(self.eJadwal?.items?.first?.maghrib ?? "")"
+            return cell
         case 5:
             cell.textLabel?.text = "Isha        : \(self.eJadwal?.items?.first?.isha ?? "")"
         default:
             return AppCell()
         }
         return cell
+    }
+    
+    private func updateLoc() {
+        if isUpdatingLocation {
+            locManager.delegate = self
+            locManager.desiredAccuracy = kCLLocationAccuracyBest
+            if CLLocationManager.authorizationStatus() == .notDetermined {
+                locManager.requestWhenInUseAuthorization()
+            }else{
+                locManager.startUpdatingLocation()
+            }
+        }
     }
 }
 extension HomeViewController: CLLocationManagerDelegate {
@@ -175,7 +180,11 @@ extension HomeViewController: CLLocationManagerDelegate {
     {
         currentLocation = locations.first!
         
-        print("GOT IT! locationManager-didUpdateLocations: latitude :\(currentLocation.coordinate.latitude) longitude: \(currentLocation.coordinate.longitude)")
+        print("Got It location: \(locations.description)")
+        DispatchQueue.main.async {
+            self.getAddressFromLatLon(pdblLatitude: "\(self.currentLocation.coordinate.latitude )", withLongitude: "\(self.currentLocation.coordinate.longitude)")
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -186,10 +195,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         }else if status == .denied || status == .restricted {
             print("Denied or Restricted")
         }else {
+            updateLoc()
             locManager.startUpdatingLocation()
         }
     }
 }
-
-
-

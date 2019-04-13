@@ -15,6 +15,8 @@
 		7C62EE16225730D200F060B3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE15225730D200F060B3 /* Location.swift */; };
 		7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE17225730EF00F060B3 /* LocationStorage.swift */; };
 		7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */; };
+		7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */; };
+		7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7C62EE15225730D200F060B3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7C62EE17225730EF00F060B3 /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
 		7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				7C62EE122257096900F060B3 /* Location */,
 				7C055BA92253398A00173E86 /* Home */,
 				7C055BA82253397400173E86 /* Entity */,
+				7CD48E6E225DBBE700035898 /* Service */,
 				7C055B9A2253313700173E86 /* Info.plist */,
 				7C055B952253313700173E86 /* Assets.xcassets */,
 				7C055B972253313700173E86 /* LaunchScreen.storyboard */,
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				7C055BA22253323300173E86 /* HomeViewController.swift */,
+				7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -95,6 +101,14 @@
 				7C62EE17225730EF00F060B3 /* LocationStorage.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		7CD48E6E225DBBE700035898 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */,
 				7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */,
+				7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */,
 				7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */,
 				7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */,
 				7C62EE16225730D200F060B3 /* Location.swift in Sources */,
