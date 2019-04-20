@@ -25,27 +25,6 @@ struct Jadwal: Decodable {
     let items: [Item]?
     let statusValid, statusCode: Int?
     let statusDescription: String?
-    
-//    enum CodingKeys: String, CodingKey {
-//        case title, query
-//        case jadwalFor = "for"
-//        case method
-//        case prayerMethodName = "prayer_method_name"
-//        case daylight, timezone
-//        case mapImage = "map_image"
-//        case sealevel
-//        case todayWeather = "today_weather"
-//        case link
-//        case qiblaDirection = "qibla_direction"
-//        case latitude, longitude, address, city, state
-//        case postalCode = "postal_code"
-//        case country
-//        case countryCode = "country_code"
-//        case items
-//        case statusValid = "status_valid"
-//        case statusCode = "status_code"
-//        case statusDescription = "status_description"
-//    }
 }
 
 struct Item: Codable {
