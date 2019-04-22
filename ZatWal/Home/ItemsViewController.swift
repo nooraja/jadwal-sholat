@@ -10,13 +10,6 @@ import Foundation
 import UIKit
 
 
-struct Album {
-    var title: String
-}
-
-struct Artist {
-    var name: String
-}
 
 struct CellDescriptor {
     let cellClass: UITableViewCell.Type

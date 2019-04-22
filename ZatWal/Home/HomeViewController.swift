@@ -6,6 +6,7 @@
 //  Copyright © 2019 Muhammad Noor. All rights reserved.
 //
 
+
 import UIKit
 import CoreLocation
 
@@ -44,28 +45,34 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     var locManager = CLLocationManager()
     var country: String?
     var isUpdatingLocation = true
+    var lastLocationError: Error?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        dataLoad()
         locManager.delegate = self
         locManager.requestWhenInUseAuthorization()
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        if #available(iOS 9, *) {
+            locManager.allowsBackgroundLocationUpdates = true
+        }
         locManager.startUpdatingLocation()
     }
     
     override func viewDidLoad() {
         tableView.registerCell(AppCell.self )
-//        tableView.registerCell(CustomeCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 80
         tableView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
     
     func dataLoad()  {
-        guard let url = URL(string: "https://muslimsalat.com/\(self.country ?? "")/daily.json?key=496d474de67f4950ad3119c2c6f96351") else { return }
+        guard let url = URL(string: "https://muslimsalat.com/\(self.country ?? "")/daily.json?key=496d474de67f4950ad3119c2c6f96351".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else { return }
+        
+        print("url \(url)")
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let datas = data else { return }
@@ -83,6 +90,11 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
         task.resume()
     }
     
+    func stopLocationManager() {
+        //        isUpdatingLocation = false
+        locManager.stopUpdatingLocation()
+    }
+    
     func getAddressFromLatLon(pdblLatitude: String, withLongitude pdblLongitude: String) {
         var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
         let lat: Double = Double("\(pdblLatitude)")!
@@ -95,18 +107,18 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
         
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
         
-        
         ceo.reverseGeocodeLocation(loc, completionHandler:
             {(placemarks, error) in
-                if (error != nil)
-                {
+                if (error != nil) {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
                 }
-                let pm = placemarks! as [CLPlacemark]
+                guard let pm = placemarks as? [CLPlacemark] else {return }
                 
                 if pm.count > 0 {
                     let pm = placemarks![0]
                     self.country = pm.locality
+                    print("country \(self.country)")
+                    
                     var addressString : String = ""
                     if pm.subLocality != nil {
                         addressString = addressString + pm.subLocality! + ", "
@@ -138,7 +150,11 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
         cell.selectionStyle = .none
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = self.country
+            let date = Date()
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: date)
+            let minutes = calendar.component(.minute, from: date)
+            cell.textLabel?.text = "\(self.country ?? "") time : \(hour):\(minutes)"
             cell.accessoryType = .checkmark
         case 1:
             cell.textLabel?.text = "Fajr        : \(self.eJadwal?.items?.first?.fajr ?? "")"
@@ -176,6 +192,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         if (error as NSError).code == CLError.locationUnknown.rawValue {
             return
         }
+        lastLocationError = error
+        stopLocationManager()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
