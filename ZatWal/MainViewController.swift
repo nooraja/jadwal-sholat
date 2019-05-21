@@ -43,12 +43,7 @@ class MainViewController: UITabBarController{
         home.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.968627451, green: 0.8901960784, blue: 0.1058823529, alpha: 1)], for: UIControl.State.selected)
         home.tabBarItem.tag = 1
         
-        let myAccount = ProfileViewController()
-        myAccount.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "ic_location").withRenderingMode(.alwaysTemplate), selectedImage: #imageLiteral(resourceName: "ic_location").withRenderingMode(.alwaysOriginal))
-        myAccount.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.968627451, green: 0.8901960784, blue: 0.1058823529, alpha: 1)], for: UIControl.State.selected)
-        myAccount.tabBarItem.tag = 2
-        
-        let views = [home, myAccount].map { UINavigationController(rootViewController: $0) }
+        let views = [home].map { UINavigationController(rootViewController: $0) }
         return views
     }
 }

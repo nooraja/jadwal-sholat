@@ -12,7 +12,6 @@
 		7C055B992253313700173E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B972253313700173E86 /* LaunchScreen.storyboard */; };
 		7C055BA1225331E400173E86 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA0225331E400173E86 /* MainViewController.swift */; };
 		7C055BA32253323300173E86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA22253323300173E86 /* HomeViewController.swift */; };
-		7C055BA52253325700173E86 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA42253325700173E86 /* ProfileViewController.swift */; };
 		7C055BA72253391500173E86 /* Jadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA62253391500173E86 /* Jadwal.swift */; };
 		7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -25,7 +24,6 @@
 		7C055B9A2253313700173E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C055BA0225331E400173E86 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7C055BA22253323300173E86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7C055BA42253325700173E86 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7C055BA62253391500173E86 /* Jadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jadwal.swift; sourceTree = "<group>"; };
 		7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +61,6 @@
 				7C055B8E2253313500173E86 /* AppDelegate.swift */,
 				7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */,
 				7C055BA0225331E400173E86 /* MainViewController.swift */,
-				7C055BAA2253399300173E86 /* Profile */,
 				7C055BA92253398A00173E86 /* Home */,
 				7C055BA82253397400173E86 /* Entity */,
 				7C055B9A2253313700173E86 /* Info.plist */,
@@ -87,14 +84,6 @@
 				7C055BA22253323300173E86 /* HomeViewController.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		7C055BAA2253399300173E86 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				7C055BA42253325700173E86 /* ProfileViewController.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +118,7 @@
 				TargetAttributes = {
 					7C055B8A2253313500173E86 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -173,7 +163,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C055BA1225331E400173E86 /* MainViewController.swift in Sources */,
-				7C055BA52253325700173E86 /* ProfileViewController.swift in Sources */,
 				7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */,
 				7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */,
 				7C055BA32253323300173E86 /* HomeViewController.swift in Sources */,
@@ -325,7 +314,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.codelatos.ZatWal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -344,7 +333,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.codelatos.ZatWal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
