@@ -1,3 +1,6 @@
+import UIKit
+
+
 //
 //  EntityJadwal.swift
 //  ZatWal
@@ -66,3 +69,26 @@ struct Locations: Codable {
 		case localOffset = "local_offset"
 	}
 }
+
+
+
+URLSession.shared.dataTask(with: URL(string: "https://api.pray.zone/v2/times/today.json?city=jakarta")!) { (data, response, error) in
+
+	guard let data = data else {
+		return
+	}
+
+	do {
+		let decodeData = try JSONDecoder().decode(Jadwal.self, from: data)
+
+		print(decodeData)
+	} catch  {
+
+	}
+
+
+
+}.resume()
+
+
+

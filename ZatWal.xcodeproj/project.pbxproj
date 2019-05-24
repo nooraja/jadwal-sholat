@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */; };
+		2E19D4962296248C0026CEFE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19D4952296248C0026CEFE /* Extension.swift */; };
 		7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055B8E2253313500173E86 /* AppDelegate.swift */; };
 		7C055B962253313700173E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B952253313700173E86 /* Assets.xcassets */; };
 		7C055B992253313700173E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B972253313700173E86 /* LaunchScreen.storyboard */; };
 		7C055BA32253323300173E86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA22253323300173E86 /* HomeViewController.swift */; };
 		7C055BA72253391500173E86 /* Jadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA62253391500173E86 /* Jadwal.swift */; };
 		7C62EE16225730D200F060B3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE15225730D200F060B3 /* Location.swift */; };
-		7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE17225730EF00F060B3 /* LocationStorage.swift */; };
 		7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */; };
 		7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */; };
 		7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E19D4902294C8F70026CEFE /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		2E19D4952296248C0026CEFE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7C055B8B2253313500173E86 /* ZatWal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZatWal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C055B8E2253313500173E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C055B952253313700173E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,7 +32,6 @@
 		7C055BA22253323300173E86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7C055BA62253391500173E86 /* Jadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jadwal.swift; sourceTree = "<group>"; };
 		7C62EE15225730D200F060B3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		7C62EE17225730EF00F060B3 /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
 		7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyNetwork.swift; sourceTree = "<group>"; };
@@ -70,9 +73,11 @@
 				7C055BA92253398A00173E86 /* Home */,
 				7C055BA82253397400173E86 /* Entity */,
 				7CD48E6E225DBBE700035898 /* Service */,
+				2E19D4902294C8F70026CEFE /* Testing.playground */,
 				7C055B9A2253313700173E86 /* Info.plist */,
 				7C055B952253313700173E86 /* Assets.xcassets */,
 				7C055B972253313700173E86 /* LaunchScreen.storyboard */,
+				2E19D4952296248C0026CEFE /* Extension.swift */,
 			);
 			path = ZatWal;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 			children = (
 				7C055BA22253323300173E86 /* HomeViewController.swift */,
 				7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */,
+				2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -98,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				7C62EE15225730D200F060B3 /* Location.swift */,
-				7C62EE17225730EF00F060B3 /* LocationStorage.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -186,8 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E19D4962296248C0026CEFE /* Extension.swift in Sources */,
 				7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */,
-				7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */,
+				2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */,
 				7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */,
 				7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */,
 				7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */,

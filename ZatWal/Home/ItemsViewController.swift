@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 struct CellDescriptor {
     let cellClass: UITableViewCell.Type
     let reuseIdentifier: String

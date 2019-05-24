@@ -18,10 +18,10 @@ class SplashScreenViewController: UIViewController {
     
     
     fileprivate func dataLoad() {
-        let collections = Resource<Jadwal>(get: URL(string: "https://muslimsalat.com/\(self.country)/daily.json?key=496d474de67f4950ad3119c2c6f96351".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
+		let collections = Resource<Jadwal>(get: URL(string: "https://muslimsalat.com/\(String(describing: self.country))/daily.json?key=496d474de67f4950ad3119c2c6f96351".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
         
-        let latestCollection = collections.map { $0.items?.first }
-        
+        let latestCollection = collections.map { $0.results.datetime.first?.times }
+
         URLSession.shared.load(latestCollection) { (res) in
             let fajr = res.map { $0?.fajr }
             let asr = res.map { $0?.asr }
@@ -29,7 +29,7 @@ class SplashScreenViewController: UIViewController {
             let magrib = res.map {$0?.maghrib }
             let isya = res.map {$0?.isha }
             
-            var jadwal: [Schedule] = [
+            let jadwal: [Schedule] = [
                 Schedule(title: fajr as! String),
                 Schedule(title: dhuhr as! String),
                 Schedule(title: asr as! String),
@@ -37,7 +37,7 @@ class SplashScreenViewController: UIViewController {
                 Schedule(title: isya as! String),
             ]
             
-            var recentJadwal: [JadwalItem] = [
+            let recentJadwal: [JadwalItem] = [
                 .fajr(jadwal[0]),
                 .dhuhr(jadwal[1]),
                 .asr(jadwal[2]),
@@ -45,7 +45,7 @@ class SplashScreenViewController: UIViewController {
                 .isha(jadwal[4])
             ]
             
-            print("location : \(self.country)")
+			print("location : \(String(describing: self.country))")
             
             let recentItemsVC = ItemsViewController(items: recentJadwal, cellDescriptor: { $0.cellDescriptor })
             recentItemsVC.view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
