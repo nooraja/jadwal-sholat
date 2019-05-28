@@ -85,9 +85,6 @@ URLSession.shared.dataTask(with: URL(string: "https://api.pray.zone/v2/times/tod
 	} catch  {
 
 	}
-
-
-
 }.resume()
 
 

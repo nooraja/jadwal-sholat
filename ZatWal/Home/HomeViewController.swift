@@ -15,7 +15,7 @@ protocol Reusable {
 }
 
 
-class AppCell: UITableViewCell {
+class AppCell: YellowSplitterTableViewCell {
     
 }
 
@@ -65,9 +65,10 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
         tableView.dataSource = self
         tableView.delegate = self
 		tableView.estimatedRowHeight = 200
-		tableView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+		tableView.backgroundColor = .telegramBlue
         tableView.tableFooterView = UIView()
 		tableView.rowHeight = UITableView.automaticDimension
+
 
 		tableView.registerCell(AppCell.self )
 		tableView.register(HomeHeaderCell.self, forCellReuseIdentifier: "homeHeader")
@@ -159,35 +160,33 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 
 			return cell
 		case 1:
+			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
+
+			if !(cell.backgroundView is StarshipsListCellBackground) {
+				cell.backgroundView = StarshipsListCellBackground()
+			}
+
+			if !(cell.selectedBackgroundView is StarshipsListCellBackground) {
+				cell.selectedBackgroundView = StarshipsListCellBackground()
+			}
+
+			cell.selectionStyle = .none
+			cell.textLabel!.textColor = .starwarsStarshipGrey
+
 			switch indexPath.row {
 			case 0:
-				let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-				cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-				cell.selectionStyle = .none
 				cell.textLabel?.text = "Fajr        : \(self.eJadwal?.results.datetime.first?.times.fajr ?? "")"
 				return cell
 			case 1:
-				let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-				cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-				cell.selectionStyle = .none
 				cell.textLabel?.text = "Dhuhr       : \(self.eJadwal?.results.datetime.first?.times.dhuhr ?? "")"
 				return cell
 			case 2:
-				let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-				cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-				cell.selectionStyle = .none
 				cell.textLabel?.text = "Asr         : \(self.eJadwal?.results.datetime.first?.times.asr ?? "")"
 				return cell
 			case 3:
-				let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-				cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-				cell.selectionStyle = .none
 				cell.textLabel?.text = "Magrib      : \(self.eJadwal?.results.datetime.first?.times.maghrib ?? "")"
 				return cell
 			case 4:
-				let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-				cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-				cell.selectionStyle = .none
 				cell.textLabel?.text = "Isha        : \(self.eJadwal?.results.datetime.first?.times.isha ?? "")"
 				return cell
 			default:

@@ -19,11 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+		UINavigationBar.appearance().tintColor = .telegramWhite
+		UINavigationBar.appearance().barTintColor = .telegramBlue
+		UINavigationBar.appearance().titleTextAttributes =
+			[.foregroundColor: UIColor.starwarsStarshipGrey]
+
         window = UIWindow()
         window?.makeKeyAndVisible()
 //        window?.rootViewController = SplashScreenViewController()
         window?.rootViewController = HomeViewController()
-        
+
         return true
     }
 

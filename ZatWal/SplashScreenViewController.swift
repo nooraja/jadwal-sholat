@@ -15,7 +15,7 @@ class SplashScreenViewController: UIViewController {
     var locManager = CLLocationManager()
     var country: String?
     var isUpdatingLocation = true
-    
+
     
     fileprivate func dataLoad() {
 		let collections = Resource<Jadwal>(get: URL(string: "https://muslimsalat.com/\(String(describing: self.country))/daily.json?key=496d474de67f4950ad3119c2c6f96351".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
@@ -23,18 +23,18 @@ class SplashScreenViewController: UIViewController {
         let latestCollection = collections.map { $0.results.datetime.first?.times }
 
         URLSession.shared.load(latestCollection) { (res) in
-            let fajr = res.map { $0?.fajr }
-            let asr = res.map { $0?.asr }
-            let dhuhr = res.map {$0?.dhuhr }
-            let magrib = res.map {$0?.maghrib }
-            let isya = res.map {$0?.isha }
+			let fajr: String = res.map { $0?.fajr ?? "" } ?? ""
+			let asr: String = res.map { $0?.asr ?? "" } ?? ""
+			let dhuhr: String = res.map {$0?.dhuhr ?? "" } ?? ""
+			let magrib: String = res.map {$0?.maghrib ?? "" } ?? ""
+			let isya: String = res.map {$0?.isha ?? "" } ?? ""
             
             let jadwal: [Schedule] = [
-                Schedule(title: fajr as! String),
-                Schedule(title: dhuhr as! String),
-                Schedule(title: asr as! String),
-                Schedule(title: magrib as! String),
-                Schedule(title: isya as! String),
+                Schedule(title: fajr),
+                Schedule(title: dhuhr),
+                Schedule(title: asr),
+                Schedule(title: magrib),
+                Schedule(title: isya),
             ]
             
             let recentJadwal: [JadwalItem] = [
