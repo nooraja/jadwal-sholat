@@ -15,10 +15,9 @@ class SplashScreenViewController: UIViewController {
     var locManager = CLLocationManager()
     var country: String?
     var isUpdatingLocation = true
-
     
     fileprivate func dataLoad() {
-		let collections = Resource<Jadwal>(get: URL(string: "https://muslimsalat.com/\(String(describing: self.country))/daily.json?key=496d474de67f4950ad3119c2c6f96351".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
+		let collections = Resource<Jadwal>(get: URL(string: "https://api.pray.zone/v2/times/today.json?city=\(self.country ?? "")".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
         
         let latestCollection = collections.map { $0.results.datetime.first?.times }
 
@@ -30,23 +29,23 @@ class SplashScreenViewController: UIViewController {
 			let isya: String = res.map {$0?.isha ?? "" } ?? ""
             
             let jadwal: [Schedule] = [
-                Schedule(title: fajr),
-                Schedule(title: dhuhr),
-                Schedule(title: asr),
-                Schedule(title: magrib),
-                Schedule(title: isya),
+				Schedule(title: "\(String(describing: self.country ?? "")) Area"),
+				Schedule(title: "Fajr: \(fajr)"),
+                Schedule(title: "Dhuhr \(dhuhr)"),
+				Schedule(title: "Asr: \(asr)"),
+                Schedule(title: "Magrib \(magrib)"),
+                Schedule(title: "Isya \(isya)")
             ]
             
             let recentJadwal: [JadwalItem] = [
-                .fajr(jadwal[0]),
-                .dhuhr(jadwal[1]),
-                .asr(jadwal[2]),
-                .mahgrib(jadwal[3]),
-                .isha(jadwal[4])
+				.header(jadwal[0]),
+                .fajr(jadwal[1]),
+                .dhuhr(jadwal[2]),
+                .asr(jadwal[3]),
+                .mahgrib(jadwal[4]),
+                .isha(jadwal[5])
             ]
-            
-			print("location : \(String(describing: self.country))")
-            
+
             let recentItemsVC = ItemsViewController(items: recentJadwal, cellDescriptor: { $0.cellDescriptor })
             recentItemsVC.view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
@@ -57,8 +56,7 @@ class SplashScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
+
         locManager.delegate = self
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
@@ -86,27 +84,12 @@ class SplashScreenViewController: UIViewController {
                 let pm = placemarks! as [CLPlacemark]
                 
                 if pm.count > 0 {
-                    let pm = placemarks![0]
-                    self.country = pm.locality
-                    var addressString : String = ""
-                    if pm.subLocality != nil {
-                        addressString = addressString + pm.subLocality! + ", "
-                    }
-                    if pm.thoroughfare != nil {
-                        addressString = addressString + pm.thoroughfare! + ", "
-                    }
-                    if pm.locality != nil {
-                        addressString = addressString + pm.locality! + ", "
-                    }
-                    if pm.country != nil {
-                        addressString = addressString + pm.country! + ", "
-                    }
-                    if pm.postalCode != nil {
-                        addressString = addressString + pm.postalCode! + " "
-                    }
+                    let pm = placemarks!.first
+					self.country = pm?.administrativeArea
+					self.dataLoad()
                 }
         })
-        self.dataLoad()
+
     }
     
     private func updateLoc() {
@@ -157,22 +140,8 @@ extension SplashScreenViewController: CLLocationManagerDelegate {
     }
 }
 
-
-
-
-let artists: [Artist] = [
-    Artist(name: "Prince"),
-    Artist(name: "Glen Hansard"),
-    Artist(name: "I Am Oak")
-]
-
-let albums: [Album] = [
-    Album(title: "Blue Lines"),
-    Album(title: "Oasem"),
-    Album(title: "Bon Iver")
-]
-
 enum JadwalItem {
+	case header(Schedule)
     case fajr(Schedule)
     case dhuhr(Schedule)
     case asr(Schedule)
@@ -180,29 +149,8 @@ enum JadwalItem {
     case isha(Schedule)
 }
 
-
-
-enum RecentItem {
-    case artist(Artist)
-    case album(Album)
-}
-
-let recentItems: [RecentItem] = [
-    .artist(artists[0]),
-    .artist(artists[1]),
-    .album(albums[1])
-]
-
 struct Schedule {
     var title: String
-}
-
-struct Album {
-    var title: String
-}
-
-struct Artist {
-    var name: String
 }
 
 extension Schedule {
@@ -210,19 +158,6 @@ extension Schedule {
         cell.textLabel?.text = title
     }
 }
-
-extension Artist {
-    func configureCell(_ cell: ArtistCell) {
-        cell.textLabel?.text = name
-    }
-}
-
-extension Album {
-    func configureCell(_ cell: AlbumCell) {
-        cell.textLabel?.text = title
-    }
-}
-
 
 final class JadwalCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -247,18 +182,9 @@ extension JadwalItem {
             return CellDescriptor(reuseIdentifier: "mahgrib", configure: mahgrib.configureCell)
         case .isha(let isha):
             return CellDescriptor(reuseIdentifier: "isha", configure: isha.configureCell)
-        }
+		case .header(let header):
+			return CellDescriptor(reuseIdentifier: "header", configure: header.configureCell)
+		}
     }
     
-}
-
-extension RecentItem {
-    var cellDescriptor: CellDescriptor {
-        switch self {
-        case .artist(let artist):
-            return CellDescriptor(reuseIdentifier: "artist", configure: artist.configureCell)
-        case .album(let album):
-            return CellDescriptor(reuseIdentifier: "album", configure: album.configureCell)
-        }
-    }
 }

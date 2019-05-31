@@ -34,6 +34,8 @@ final class ItemsViewController<Item>: UITableViewController {
         self.cellDescriptor = cellDescriptor
         super.init(style: .plain)
         self.items = items
+
+		self.tableView.tableFooterView = UIView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,25 +65,3 @@ final class ItemsViewController<Item>: UITableViewController {
         return cell
     }
 }
-
-final class ArtistCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-final class AlbumCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value2, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-

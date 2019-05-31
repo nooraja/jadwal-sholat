@@ -23,9 +23,6 @@ class StarshipsListCellBackground: UIView {
 		guard let context = UIGraphicsGetCurrentContext() else {
 			return
 		}
-//
-//		context.setFillColor(#colorLiteral(red: 0.1098039216, green: 0.5725490196, blue: 0.8235294118, alpha: 1))
-//		context.fill(bounds)
 
 		let backgroundRect = bounds
 		context.drawLinearGradient(

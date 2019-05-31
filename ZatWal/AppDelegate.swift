@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
         window?.makeKeyAndVisible()
-//        window?.rootViewController = SplashScreenViewController()
-        window?.rootViewController = HomeViewController()
+        window?.rootViewController = SplashScreenViewController()
+//        window?.rootViewController = HomeViewController()
 
         return true
     }
