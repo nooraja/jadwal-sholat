@@ -15,7 +15,7 @@ protocol Reusable {
 }
 
 
-class AppCell: YellowSplitterTableViewCell {
+class AppCell: UITableViewCell {
     
 }
 
@@ -62,16 +62,16 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
 
-        tableView.dataSource = self
-        tableView.delegate = self
-		tableView.estimatedRowHeight = 200
-		tableView.backgroundColor = .telegramBlue
-        tableView.tableFooterView = UIView()
+		tableView.delegate = self
+		tableView.dataSource = self
 		tableView.rowHeight = UITableView.automaticDimension
 
+		tableView.estimatedRowHeight = 600
+		tableView.tableFooterView = UIView()
+		tableView.backgroundColor = .telegramBlue
 
-		tableView.registerCell(AppCell.self )
-		tableView.register(HomeHeaderCell.self, forCellReuseIdentifier: "homeHeader")
+		tableView.registerCell(AppCell.self)
+		tableView.registerCell(HomeHeaderCell.self)
     }
     
     func dataLoad()  {
@@ -132,7 +132,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 2
 	}
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 1 {
 			return 5
@@ -145,18 +145,18 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 
 		switch indexPath.section {
 		case 0:
-			guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeHeader", for: indexPath) as? HomeHeaderCell
-				else {
-					return UITableViewCell()
-			}
-			
+			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeHeaderCell
+			cell.layoutIfNeeded()
+			cell.systemLayoutSizeFitting(CGSize(width: view.frame.width, height: 400))
+
 			cell.selectionStyle = .none
 
 			let date = Date()
 			let calendar = Calendar.current
 			let hour = calendar.component(.hour, from: date)
 			let minutes = calendar.component(.minute, from: date)
-			cell.textLabel?.text = "\(self.country ?? "") time : \(hour):\(minutes)"
+			cell.userEmail.text = "\(self.country ?? "")"
+			cell.userFullName.text = "\(hour):\(minutes)"
 
 			return cell
 		case 1:

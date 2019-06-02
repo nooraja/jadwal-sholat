@@ -1,11 +1,11 @@
 import Foundation
+import PlaygroundSupport
+
+ 
 
 
-func increment(_ x: Int) -> Int {
-	return x + 1
-}
 
-let x = increment(increment(increment(increment(10))))
+//PlaygroundPage.current.liveView =
 
 
 
