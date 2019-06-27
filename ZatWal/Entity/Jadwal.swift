@@ -6,7 +6,6 @@
 //  Copyright © 2019 Muhammad Noor. All rights reserved.
 
 import Foundation
-import UIKit
 
 // MARK: - Jadwal
 struct Jadwal: Codable {

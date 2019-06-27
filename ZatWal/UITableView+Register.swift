@@ -15,6 +15,18 @@ extension UITableView {
 	func register<T: UITableViewCell>(_ type: T.Type) {
 		register(T.nib, forCellReuseIdentifier: T.reuseIdentifier)
 	}
+
+	func registerCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) {
+		register(cellClass, forCellReuseIdentifier: cellClass.reuseIdentifier)
+	}
+
+	func dequeueReusableCell<Cell: UITableViewCell>(forIndexPath indexPath: IndexPath) -> Cell {
+		
+		guard let cell = self.dequeueReusableCell(withIdentifier: Cell.reuseIdentifier, for: indexPath) as? Cell else {
+			fatalError("Fatal error for cell at \(indexPath)")
+		}
+		return cell
+	}
 }
 
 

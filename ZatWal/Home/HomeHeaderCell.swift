@@ -16,16 +16,16 @@ class HomeHeaderCell: UITableViewCell {
 
 	let cellView: UIView = {
 		let vw = UIView()
-
+		vw.translatesAutoresizingMaskIntoConstraints = false
 		return vw
 	}()
 
 	lazy var profileImage: UIImageView = {
-
 		let image = UIImageView()
 		image.image = #imageLiteral(resourceName: "ic_home")
 		image.contentMode = .scaleAspectFill
-		image.layer.cornerRadius = 80 / 2
+		image.translatesAutoresizingMaskIntoConstraints = false
+		image.layer.cornerRadius = image.frame.width / 2
 		image.layer.masksToBounds = true
 		image.isUserInteractionEnabled = true
 		image.clipsToBounds = true
@@ -36,9 +36,8 @@ class HomeHeaderCell: UITableViewCell {
 	lazy var headerImageView: UIImageView = {
 
 		let image = UIImageView()
-		image.image = #imageLiteral(resourceName: "glue")
 		image.contentMode = .scaleAspectFill
-//		image.layer.cornerRadius = 80 / 2
+		image.layer.cornerRadius = 80 / 2
 		image.layer.masksToBounds = true
 		image.isUserInteractionEnabled = true
 		image.clipsToBounds = true
@@ -79,16 +78,15 @@ class HomeHeaderCell: UITableViewCell {
 		cellView.layer.mask = newHeaderLayer
 
 		contentView.addSubview(cellView)
-		cellView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 300)
-
+		cellView.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, left: contentView.leftAnchor,
+						bottom: contentView.bottomAnchor, right: contentView.rightAnchor,
+						paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8, width: 0, height: 300)
 
 		cellView.addSubview(headerImageView)
-
+		headerImageView.backgroundColor = .clear
 		headerImageView.anchor(top: cellView.topAnchor, left: cellView.leftAnchor, bottom: cellView.bottomAnchor, right: cellView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-		
-		headerImageView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: 350)
-		headerImageView.layer.mask = newHeaderLayer
 
+		headerImageView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: 350)
 	}
 
 	private func setupViewCell()  {

@@ -10,33 +10,7 @@
 import UIKit
 import CoreLocation
 
-protocol Reusable {
-	
-}
-
-
-class AppCell: UITableViewCell {
-    
-}
-
-extension UITableViewCell: Reusable {
-    static var reusedID: String {
-        return String(describing: self)
-    }
-}
-
-extension UITableView {
-    func registerCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) {
-        register(cellClass, forCellReuseIdentifier: cellClass.reusedID)
-    }
-    
-    func dequeueReusableCell<Cell: UITableViewCell>(forIndexPath indexPath: IndexPath) -> Cell {
-        guard let cell = self.dequeueReusableCell(withIdentifier: Cell.reusedID, for: indexPath) as? Cell else { fatalError("Fatal error for cell at \(indexPath)")
-            
-        }
-        return cell
-    }
-}
+class AppCell: UITableViewCell { }
 
 class HomeViewController: UITableViewController, UITextFieldDelegate {
     
@@ -47,7 +21,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     var country: String?
     var isUpdatingLocation = true
     var lastLocationError: Error?
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -65,10 +39,10 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.rowHeight = UITableView.automaticDimension
-
-		tableView.estimatedRowHeight = 600
+		tableView.isScrollEnabled = false
+		tableView.estimatedRowHeight = 300
 		tableView.tableFooterView = UIView()
-		tableView.backgroundColor = .telegramBlue
+		tableView.backgroundView = StarshipsListCellBackground(frame: .zero)
 
 		tableView.registerCell(AppCell.self)
 		tableView.registerCell(HomeHeaderCell.self)
@@ -77,13 +51,12 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
     func dataLoad()  {
 		guard let url = URL(string: "https://api.pray.zone/v2/times/today.json?city=\(self.country ?? "")"
 			.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else { return }
-        
-        print("url \(url)")
+
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let datas = data else { return }
+            guard let data = data else { return }
             do {
-                let course = try JSONDecoder().decode(Jadwal.self, from: datas)
+                let course = try JSONDecoder().decode(Jadwal.self, from: data)
                 
                 DispatchQueue.main.async {
                     self.eJadwal = course
@@ -148,30 +121,26 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeHeaderCell
 			cell.layoutIfNeeded()
 			cell.systemLayoutSizeFitting(CGSize(width: view.frame.width, height: 400))
-
+			cell.backgroundColor = .clear
 			cell.selectionStyle = .none
 
-			let date = Date()
-			let calendar = Calendar.current
-			let hour = calendar.component(.hour, from: date)
-			let minutes = calendar.component(.minute, from: date)
 			cell.userEmail.text = "\(self.country ?? "")"
-			cell.userFullName.text = "\(hour):\(minutes)"
+			let format = DateFormatter()
+			format.timeStyle = .medium
+
+			let timer = Timer(timeInterval: 1.0, repeats: true, block: { _ in
+				cell.userFullName.text = format.string(from: Date())
+			})
+
+			RunLoop.current.add(timer, forMode: .common)
 
 			return cell
 		case 1:
 			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-
-			if !(cell.backgroundView is StarshipsListCellBackground) {
-				cell.backgroundView = StarshipsListCellBackground()
-			}
-
-			if !(cell.selectedBackgroundView is StarshipsListCellBackground) {
-				cell.selectedBackgroundView = StarshipsListCellBackground()
-			}
+			cell.backgroundColor = .clear
 
 			cell.selectionStyle = .none
-			cell.textLabel!.textColor = .starwarsStarshipGrey
+			cell.textLabel!.textColor = .telegramBlue
 
 			switch indexPath.row {
 			case 0:
@@ -210,6 +179,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 }
+
 extension HomeViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

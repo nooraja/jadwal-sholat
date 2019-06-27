@@ -10,14 +10,6 @@ import UIKit
 
 class StarshipsListCellBackground: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 	override func draw(_ rect: CGRect) {
 
 		guard let context = UIGraphicsGetCurrentContext() else {
@@ -28,7 +20,7 @@ class StarshipsListCellBackground: UIView {
 		context.drawLinearGradient(
 			in: backgroundRect,
 			startingWith: UIColor.telegramBlue.cgColor,
-			finishingWith: UIColor.black.cgColor
+			finishingWith: UIColor.telegramWhite.cgColor
 		)
 
 		let strokeRect = backgroundRect.insetBy(dx: 4.5, dy: 4.5)
