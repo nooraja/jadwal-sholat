@@ -74,14 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				7C055B8E2253313500173E86 /* AppDelegate.swift */,
-<<<<<<< HEAD
-<<<<<<< HEAD
 				7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */,
 				7C055BA0225331E400173E86 /* MainViewController.swift */,
-=======
->>>>>>> master
-=======
->>>>>>> master
 				7C055BA92253398A00173E86 /* Home */,
 				7C055BA82253397400173E86 /* Entity */,
 				7CD48E6E225DBBE700035898 /* Service */,
@@ -117,11 +111,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
 		7CD48E6E225DBBE700035898 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +119,6 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
->>>>>>> master
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,22 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-<<<<<<< HEAD
 				7C055BA1225331E400173E86 /* MainViewController.swift in Sources */,
 				7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */,
-=======
-=======
->>>>>>> master
 				2E19D4962296248C0026CEFE /* UIView+Anchor.swift in Sources */,
 				2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */,
 				2EB716EB22A3A0BA00215E32 /* UITableView+Dequeing.swift in Sources */,
 				2EB716E922A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */,
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 				7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */,
 				2EB716E722A3A05600215E32 /* UITableView+Register.swift in Sources */,
 				2E1817BC229D35D200536BE6 /* CGContextExtensions.swift in Sources */,

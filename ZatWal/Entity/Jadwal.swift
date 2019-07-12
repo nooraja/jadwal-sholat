@@ -94,6 +94,37 @@ struct Times: Codable {
 	}
 }
 
+// MARK: - Datetime
+struct Datetime: Codable {
+	let times: Times
+	let date: DateClass
+}
+
+// MARK: - DateClass
+struct DateClass: Codable {
+	let timestamp: Int
+	let gregorian, hijri: String
+}
+
+// MARK: - Times
+struct Times: Codable {
+	let imsak, sunrise, fajr, dhuhr: String
+	let asr, sunset, maghrib, isha: String
+	let midnight: String
+
+	enum CodingKeys: String, CodingKey {
+		case imsak = "Imsak"
+		case sunrise = "Sunrise"
+		case fajr = "Fajr"
+		case dhuhr = "Dhuhr"
+		case asr = "Asr"
+		case sunset = "Sunset"
+		case maghrib = "Maghrib"
+		case isha = "Isha"
+		case midnight = "Midnight"
+	}
+}
+
 // MARK: - Location
 struct Locations: Codable {
 	let latitude, longitude: Double
