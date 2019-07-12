@@ -73,6 +73,13 @@ struct Times: Codable {
 	let imsak, sunrise, fajr, dhuhr: String
 	let asr, sunset, maghrib, isha: String
 	let midnight: String
+}
+
+// MARK: - Times
+struct Times: Codable {
+	let imsak, sunrise, fajr, dhuhr: String
+	let asr, sunset, maghrib, isha: String
+	let midnight: String
 
 	enum CodingKeys: String, CodingKey {
 		case imsak = "Imsak"
