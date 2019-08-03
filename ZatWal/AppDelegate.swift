@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    static let geoCoder = CLGeocoder()
+    let center = UNUserNotificationCenter.current()
+    let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow()
+
+		window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = SplashScreenViewController()
-        
+        window?.rootViewController = HomeViewController()
+		UINavigationBar.appearance().tintColor = .telegramWhite
+		UINavigationBar.appearance().barTintColor = .telegramBlue
+		UINavigationBar.appearance().titleTextAttributes =
+			[.foregroundColor: UIColor.starwarsStarshipGrey]
+
         return true
     }
 
 }
-

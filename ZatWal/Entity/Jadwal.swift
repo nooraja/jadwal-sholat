@@ -6,59 +6,79 @@
 //  Copyright © 2019 Muhammad Noor. All rights reserved.
 
 import Foundation
-import UIKit
 
+// MARK: - Jadwal
+struct Jadwal: Codable {
 
-struct Jadwal: Decodable {
-    let title, query, jadwalFor: String?
-//    let method: Int?
-    let prayerMethodName: String?
-//    let daylight: Int?
-    let timezone: String?
-    let mapImage: String?
-    let sealevel: String?
-    let todayWeather: TodayWeather?
-    let link: String?
-    let qiblaDirection, latitude, longitude, address: String?
-    let city, state, postalCode, country: String?
-    let countryCode: String?
-    let items: [Item]?
-    let statusValid, statusCode: Int?
-    let statusDescription: String?
-    
-//    enum CodingKeys: String, CodingKey {
-//        case title, query
-//        case jadwalFor = "for"
-//        case method
-//        case prayerMethodName = "prayer_method_name"
-//        case daylight, timezone
-//        case mapImage = "map_image"
-//        case sealevel
-//        case todayWeather = "today_weather"
-//        case link
-//        case qiblaDirection = "qibla_direction"
-//        case latitude, longitude, address, city, state
-//        case postalCode = "postal_code"
-//        case country
-//        case countryCode = "country_code"
-//        case items
-//        case statusValid = "status_valid"
-//        case statusCode = "status_code"
-//        case statusDescription = "status_description"
-//    }
+	let code: Int
+	let status: String
+	let results: Results
+
 }
 
-struct Item: Codable {
-    let dateFor, fajr, shurooq, dhuhr: String?
-    let asr, maghrib, isha: String?
+struct Results: Codable {
 
-    enum CodingKeys: String, CodingKey {
-        case dateFor = "date_for"
-        case fajr, shurooq, dhuhr, asr, maghrib, isha
-    }
-}
+	// MARK: - Datetime
+	struct Datetime: Codable {
 
-struct TodayWeather: Codable {
-    let pressure: Int?
-    let temperature: String?
+		// MARK: - DateClass
+		struct DateClass: Codable {
+			let timestamp: Int
+			let gregorian, hijri: String
+		}
+
+		// MARK: - Times
+		struct Times: Codable {
+			let imsak, sunrise, fajr, dhuhr: String
+			let asr, sunset, maghrib, isha: String
+			let midnight: String
+
+			enum CodingKeys: String, CodingKey {
+				case imsak = "Imsak"
+				case sunrise = "Sunrise"
+				case fajr = "Fajr"
+				case dhuhr = "Dhuhr"
+				case asr = "Asr"
+				case sunset = "Sunset"
+				case maghrib = "Maghrib"
+				case isha = "Isha"
+				case midnight = "Midnight"
+			}
+		}
+
+		let times: Times
+		let date: DateClass
+	}
+
+	// MARK: - Location
+	struct Location: Codable {
+		let latitude, longitude: Double
+		let elevation: Int
+		let city, country, countryCode, timezone: String
+		let localOffset: Int
+
+		enum CodingKeys: String, CodingKey {
+			case latitude, longitude, elevation, city, country
+			case countryCode = "country_code"
+			case timezone
+			case localOffset = "local_offset"
+		}
+	}
+
+	// MARK: - Settings
+	struct Settings: Codable {
+		let timeformat, school, juristic, highlat: String
+		let fajrAngle, ishaAngle: Int
+
+		enum CodingKeys: String, CodingKey {
+			case timeformat, school, juristic, highlat
+			case fajrAngle = "fajr_angle"
+			case ishaAngle = "isha_angle"
+		}
+	}
+
+	let datetime: [Datetime]
+	let location: Location
+	let settings: Settings
+
 }
