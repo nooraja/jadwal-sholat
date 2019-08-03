@@ -7,19 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1817B6229D11A100536BE6 /* StarshipsListCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */; };
+		2E1817B8229D146F00536BE6 /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1817B7229D146F00536BE6 /* UIColor+String.swift */; };
+		2E1817BC229D35D200536BE6 /* CGContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1817BB229D35D200536BE6 /* CGContextExtensions.swift */; };
+		2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */; };
+		2E19D4962296248C0026CEFE /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E19D4952296248C0026CEFE /* UIView+Anchor.swift */; };
+		2EB716E722A3A05600215E32 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716E622A3A05600215E32 /* UITableView+Register.swift */; };
+		2EB716E922A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */; };
+		2EB716EB22A3A0BA00215E32 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716EA22A3A0BA00215E32 /* UITableView+Dequeing.swift */; };
 		7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055B8E2253313500173E86 /* AppDelegate.swift */; };
 		7C055B962253313700173E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B952253313700173E86 /* Assets.xcassets */; };
 		7C055B992253313700173E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B972253313700173E86 /* LaunchScreen.storyboard */; };
 		7C055BA32253323300173E86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA22253323300173E86 /* HomeViewController.swift */; };
 		7C055BA72253391500173E86 /* Jadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA62253391500173E86 /* Jadwal.swift */; };
-		7C62EE16225730D200F060B3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE15225730D200F060B3 /* Location.swift */; };
-		7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62EE17225730EF00F060B3 /* LocationStorage.swift */; };
-		7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */; };
-		7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */; };
 		7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsListCellBackground.swift; sourceTree = "<group>"; };
+		2E1817B7229D146F00536BE6 /* UIColor+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
+		2E1817BB229D35D200536BE6 /* CGContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtensions.swift; sourceTree = "<group>"; };
+		2E19D4902294C8F70026CEFE /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		2E19D4952296248C0026CEFE /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
+		2EB716E622A3A05600215E32 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		2EB716EA22A3A0BA00215E32 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
 		7C055B8B2253313500173E86 /* ZatWal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZatWal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C055B8E2253313500173E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C055B952253313700173E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,10 +40,6 @@
 		7C055B9A2253313700173E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C055BA22253323300173E86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7C055BA62253391500173E86 /* Jadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jadwal.swift; sourceTree = "<group>"; };
-		7C62EE15225730D200F060B3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		7C62EE17225730EF00F060B3 /* LocationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
-		7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,14 +74,19 @@
 			isa = PBXGroup;
 			children = (
 				7C055B8E2253313500173E86 /* AppDelegate.swift */,
-				7CC962D02255CF3000FE43E7 /* SplashScreenViewController.swift */,
-				7C62EE122257096900F060B3 /* Location */,
 				7C055BA92253398A00173E86 /* Home */,
 				7C055BA82253397400173E86 /* Entity */,
 				7CD48E6E225DBBE700035898 /* Service */,
+				2E19D4902294C8F70026CEFE /* Testing.playground */,
 				7C055B9A2253313700173E86 /* Info.plist */,
 				7C055B952253313700173E86 /* Assets.xcassets */,
 				7C055B972253313700173E86 /* LaunchScreen.storyboard */,
+				2E19D4952296248C0026CEFE /* UIView+Anchor.swift */,
+				2EB716E622A3A05600215E32 /* UITableView+Register.swift */,
+				2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */,
+				2EB716EA22A3A0BA00215E32 /* UITableView+Dequeing.swift */,
+				2E1817B7229D146F00536BE6 /* UIColor+String.swift */,
+				2E1817BB229D35D200536BE6 /* CGContextExtensions.swift */,
 			);
 			path = ZatWal;
 			sourceTree = "<group>";
@@ -89,18 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				7C055BA22253323300173E86 /* HomeViewController.swift */,
-				7CD48E6A225DA4DE00035898 /* ItemsViewController.swift */,
+				2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */,
+				2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		7C62EE122257096900F060B3 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				7C62EE15225730D200F060B3 /* Location.swift */,
-				7C62EE17225730EF00F060B3 /* LocationStorage.swift */,
-			);
-			path = Location;
 			sourceTree = "<group>";
 		};
 		7CD48E6E225DBBE700035898 /* Service */ = {
@@ -143,6 +149,7 @@
 				TargetAttributes = {
 					7C055B8A2253313500173E86 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -186,12 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CD48E6B225DA4DE00035898 /* ItemsViewController.swift in Sources */,
-				7C62EE18225730EF00F060B3 /* LocationStorage.swift in Sources */,
+				2E19D4962296248C0026CEFE /* UIView+Anchor.swift in Sources */,
+				2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */,
+				2EB716EB22A3A0BA00215E32 /* UITableView+Dequeing.swift in Sources */,
+				2EB716E922A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */,
-				7CC962D12255CF3000FE43E7 /* SplashScreenViewController.swift in Sources */,
 				7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */,
-				7C62EE16225730D200F060B3 /* Location.swift in Sources */,
+				2EB716E722A3A05600215E32 /* UITableView+Register.swift in Sources */,
+				2E1817BC229D35D200536BE6 /* CGContextExtensions.swift in Sources */,
+				2E1817B6229D11A100536BE6 /* StarshipsListCellBackground.swift in Sources */,
+				2E1817B8229D146F00536BE6 /* UIColor+String.swift in Sources */,
 				7C055BA32253323300173E86 /* HomeViewController.swift in Sources */,
 				7C055BA72253391500173E86 /* Jadwal.swift in Sources */,
 			);
@@ -341,7 +352,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.codelatos.ZatWal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -360,7 +371,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.codelatos.ZatWal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
