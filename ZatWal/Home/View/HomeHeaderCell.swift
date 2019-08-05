@@ -107,6 +107,9 @@ class HomeHeaderCell: UITableViewCell {
 		setupViewCell()
 	}
 
+	func bind(title: String) {
+		userFullName.text = title
+	}
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

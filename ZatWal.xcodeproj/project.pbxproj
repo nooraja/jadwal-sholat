@@ -15,13 +15,43 @@
 		2EB716E722A3A05600215E32 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716E622A3A05600215E32 /* UITableView+Register.swift */; };
 		2EB716E922A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */; };
 		2EB716EB22A3A0BA00215E32 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB716EA22A3A0BA00215E32 /* UITableView+Dequeing.swift */; };
+		2EDE113022F56B5E00B24A92 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112D22F56B5E00B24A92 /* RxRelay.framework */; };
+		2EDE113122F56B5E00B24A92 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112D22F56B5E00B24A92 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EDE113222F56B5E00B24A92 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112E22F56B5E00B24A92 /* RxCocoa.framework */; };
+		2EDE113322F56B5E00B24A92 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112E22F56B5E00B24A92 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EDE113422F56B5E00B24A92 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112F22F56B5E00B24A92 /* RxSwift.framework */; };
+		2EDE113522F56B5E00B24A92 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE112F22F56B5E00B24A92 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EDE113B22F56C4400B24A92 /* JadwalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE113A22F56C4400B24A92 /* JadwalViewModel.swift */; };
+		2EDE113D22F56DC800B24A92 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE113C22F56DC800B24A92 /* EndpointType.swift */; };
+		2EDE113F22F5706E00B24A92 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE113E22F5706E00B24A92 /* Provider.swift */; };
+		2EDE114122F5740900B24A92 /* JadwalNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114022F5740900B24A92 /* JadwalNetworkModel.swift */; };
+		2EDE114322F5760D00B24A92 /* JadwalEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114222F5760D00B24A92 /* JadwalEndpoint.swift */; };
+		2EDE114522F57C0800B24A92 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114422F57C0800B24A92 /* APIError.swift */; };
+		2EDE114722F5888E00B24A92 /* JadwalCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114622F5888E00B24A92 /* JadwalCellViewModel.swift */; };
+		2EDE114922F5906300B24A92 /* JadwalHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114822F5906300B24A92 /* JadwalHeaderViewModel.swift */; };
+		2EDE114B22F5971D00B24A92 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE114A22F5971D00B24A92 /* AppCell.swift */; };
 		7C055B8F2253313500173E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055B8E2253313500173E86 /* AppDelegate.swift */; };
 		7C055B962253313700173E86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B952253313700173E86 /* Assets.xcassets */; };
-		7C055B992253313700173E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C055B972253313700173E86 /* LaunchScreen.storyboard */; };
 		7C055BA32253323300173E86 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA22253323300173E86 /* HomeViewController.swift */; };
 		7C055BA72253391500173E86 /* Jadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C055BA62253391500173E86 /* Jadwal.swift */; };
 		7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2EDE113622F56B5E00B24A92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EDE113322F56B5E00B24A92 /* RxCocoa.framework in Embed Frameworks */,
+				2EDE113122F56B5E00B24A92 /* RxRelay.framework in Embed Frameworks */,
+				2EDE113522F56B5E00B24A92 /* RxSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsListCellBackground.swift; sourceTree = "<group>"; };
@@ -33,10 +63,21 @@
 		2EB716E622A3A05600215E32 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2EB716EA22A3A0BA00215E32 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
+		2EDE112D22F56B5E00B24A92 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		2EDE112E22F56B5E00B24A92 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		2EDE112F22F56B5E00B24A92 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		2EDE113A22F56C4400B24A92 /* JadwalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalViewModel.swift; sourceTree = "<group>"; };
+		2EDE113C22F56DC800B24A92 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		2EDE113E22F5706E00B24A92 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		2EDE114022F5740900B24A92 /* JadwalNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalNetworkModel.swift; sourceTree = "<group>"; };
+		2EDE114222F5760D00B24A92 /* JadwalEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalEndpoint.swift; sourceTree = "<group>"; };
+		2EDE114422F57C0800B24A92 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		2EDE114622F5888E00B24A92 /* JadwalCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalCellViewModel.swift; sourceTree = "<group>"; };
+		2EDE114822F5906300B24A92 /* JadwalHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalHeaderViewModel.swift; sourceTree = "<group>"; };
+		2EDE114A22F5971D00B24A92 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
 		7C055B8B2253313500173E86 /* ZatWal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZatWal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C055B8E2253313500173E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C055B952253313700173E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7C055B982253313700173E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C055B9A2253313700173E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C055BA22253323300173E86 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7C055BA62253391500173E86 /* Jadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jadwal.swift; sourceTree = "<group>"; };
@@ -48,15 +89,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDE113222F56B5E00B24A92 /* RxCocoa.framework in Frameworks */,
+				2EDE113022F56B5E00B24A92 /* RxRelay.framework in Frameworks */,
+				2EDE113422F56B5E00B24A92 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EDE112C22F56B3200B24A92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */,
+				2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */,
+				2EDE114A22F5971D00B24A92 /* AppCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EDE113822F56C1B00B24A92 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C055BA22253323300173E86 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2EDE113922F56C2700B24A92 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2EDE113A22F56C4400B24A92 /* JadwalViewModel.swift */,
+				2EDE114622F5888E00B24A92 /* JadwalCellViewModel.swift */,
+				2EDE114822F5906300B24A92 /* JadwalHeaderViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		7C055B822253313500173E86 = {
 			isa = PBXGroup;
 			children = (
+				2EDE112E22F56B5E00B24A92 /* RxCocoa.framework */,
+				2EDE112D22F56B5E00B24A92 /* RxRelay.framework */,
+				2EDE112F22F56B5E00B24A92 /* RxSwift.framework */,
 				7C055B8D2253313500173E86 /* ZatWal */,
 				7C055B8C2253313500173E86 /* Products */,
 			);
@@ -75,12 +150,9 @@
 			children = (
 				7C055B8E2253313500173E86 /* AppDelegate.swift */,
 				7C055BA92253398A00173E86 /* Home */,
-				7C055BA82253397400173E86 /* Entity */,
-				7CD48E6E225DBBE700035898 /* Service */,
 				2E19D4902294C8F70026CEFE /* Testing.playground */,
 				7C055B9A2253313700173E86 /* Info.plist */,
 				7C055B952253313700173E86 /* Assets.xcassets */,
-				7C055B972253313700173E86 /* LaunchScreen.storyboard */,
 				2E19D4952296248C0026CEFE /* UIView+Anchor.swift */,
 				2EB716E622A3A05600215E32 /* UITableView+Register.swift */,
 				2EB716E822A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift */,
@@ -102,9 +174,11 @@
 		7C055BA92253398A00173E86 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7C055BA22253323300173E86 /* HomeViewController.swift */,
-				2E19D493229623FD0026CEFE /* HomeHeaderCell.swift */,
-				2E1817B5229D11A100536BE6 /* StarshipsListCellBackground.swift */,
+				2EDE113922F56C2700B24A92 /* ViewModel */,
+				2EDE113822F56C1B00B24A92 /* ViewController */,
+				2EDE112C22F56B3200B24A92 /* View */,
+				7C055BA82253397400173E86 /* Entity */,
+				7CD48E6E225DBBE700035898 /* Service */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -113,6 +187,11 @@
 			isa = PBXGroup;
 			children = (
 				7CD48E6F225DBBFA00035898 /* TinyNetwork.swift */,
+				2EDE113C22F56DC800B24A92 /* EndpointType.swift */,
+				2EDE113E22F5706E00B24A92 /* Provider.swift */,
+				2EDE114022F5740900B24A92 /* JadwalNetworkModel.swift */,
+				2EDE114222F5760D00B24A92 /* JadwalEndpoint.swift */,
+				2EDE114422F57C0800B24A92 /* APIError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -127,6 +206,8 @@
 				7C055B872253313500173E86 /* Sources */,
 				7C055B882253313500173E86 /* Frameworks */,
 				7C055B892253313500173E86 /* Resources */,
+				2EDE113622F56B5E00B24A92 /* Embed Frameworks */,
+				2EDE113722F56B6700B24A92 /* Carthage Framework */,
 			);
 			buildRules = (
 			);
@@ -181,20 +262,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C055B992253313700173E86 /* LaunchScreen.storyboard in Resources */,
 				7C055B962253313700173E86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2EDE113722F56B6700B24A92 /* Carthage Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+			);
+			name = "Carthage Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRelay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C055B872253313500173E86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDE113D22F56DC800B24A92 /* EndpointType.swift in Sources */,
+				2EDE114122F5740900B24A92 /* JadwalNetworkModel.swift in Sources */,
+				2EDE113B22F56C4400B24A92 /* JadwalViewModel.swift in Sources */,
 				2E19D4962296248C0026CEFE /* UIView+Anchor.swift in Sources */,
 				2E19D494229623FD0026CEFE /* HomeHeaderCell.swift in Sources */,
+				2EDE114322F5760D00B24A92 /* JadwalEndpoint.swift in Sources */,
 				2EB716EB22A3A0BA00215E32 /* UITableView+Dequeing.swift in Sources */,
 				2EB716E922A3A09500215E32 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				7CD48E70225DBBFA00035898 /* TinyNetwork.swift in Sources */,
@@ -203,23 +314,17 @@
 				2E1817BC229D35D200536BE6 /* CGContextExtensions.swift in Sources */,
 				2E1817B6229D11A100536BE6 /* StarshipsListCellBackground.swift in Sources */,
 				2E1817B8229D146F00536BE6 /* UIColor+String.swift in Sources */,
+				2EDE114922F5906300B24A92 /* JadwalHeaderViewModel.swift in Sources */,
+				2EDE114B22F5971D00B24A92 /* AppCell.swift in Sources */,
 				7C055BA32253323300173E86 /* HomeViewController.swift in Sources */,
+				2EDE114722F5888E00B24A92 /* JadwalCellViewModel.swift in Sources */,
+				2EDE113F22F5706E00B24A92 /* Provider.swift in Sources */,
 				7C055BA72253391500173E86 /* Jadwal.swift in Sources */,
+				2EDE114522F57C0800B24A92 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7C055B972253313700173E86 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C055B982253313700173E86 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7C055B9B2253313700173E86 /* Debug */ = {
@@ -344,6 +449,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9338Z8FQLT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = ZatWal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,6 +472,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9338Z8FQLT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				IBSC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = ZatWal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

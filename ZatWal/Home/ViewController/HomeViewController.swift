@@ -9,10 +9,9 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
 
-class AppCell: UITableViewCell { }
-
-class HomeViewController: UITableViewController, UITextFieldDelegate {
+class HomeViewController: UITableViewController {
     
     var eJadwal: Jadwal?
     var num: [Results]?
@@ -44,30 +43,36 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 		tableView.tableFooterView = UIView()
 		tableView.backgroundView = StarshipsListCellBackground(frame: .zero)
 
+		bindViewModel()
 		tableView.registerCell(AppCell.self)
 		tableView.registerCell(HomeHeaderCell.self)
     }
-    
-    func dataLoad()  {
-		guard let url = URL(string: "https://api.pray.zone/v2/times/today.json?city=\(self.country ?? "")"
-			.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else { return }
 
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            do {
-                let course = try JSONDecoder().decode(Jadwal.self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.eJadwal = course
-                    self.tableView.reloadData()
-                }
-            } catch let jsonErr {
-                print("Error Serilization json:", jsonErr)
-            }
-        }
-        task.resume()
-    }
+	private var viewModel: JadwalViewModel?
+	private let disposeBag = DisposeBag()
+
+	convenience init(viewModel: JadwalViewModel) {
+		self.init()
+
+		self.viewModel = viewModel
+	}
+
+	private func updateMovieDetail() {
+
+		tableView.reloadData()
+		tableView.tableFooterView = UIView()
+	}
+
+	func bindViewModel() {
+
+		viewModel?.reloadDataObservable.subscribe(onNext: { [weak self] in
+			self?.tableView.reloadData()
+		}).disposed(by: disposeBag)
+
+		viewModel?.showErrorObservable.subscribe(onNext: { [weak self] (error: Error) in
+			print(error.localizedDescription)
+		})
+	}
     
     func stopLocationManager() {
         locManager.stopUpdatingLocation()
@@ -97,7 +102,7 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 					let subAdmin = placemarks?.first?.administrativeArea
 					self.country = subAdmin
 
-                    self.dataLoad()
+                    self.bindViewModel()
                 }
         })
     }
@@ -107,61 +112,46 @@ class HomeViewController: UITableViewController, UITextFieldDelegate {
 	}
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if section == 1 {
-			return 5
-		} else {
-			return 1
+
+		guard let count = viewModel?.getNumberOfRows(forSection: section) else {
+			return 0
 		}
+
+		return count
     }
+
+	private func createHeaderCell(for indexPath: IndexPath) -> HomeHeaderCell {
+
+		let cell =  tableView.dequeueReusableCell(for: indexPath) as HomeHeaderCell
+
+		if let data = viewModel?.getDetailJadwalHeaderViewModel() {
+			cell.bind(title: data.name ?? "")
+		}
+
+		return cell
+	}
+
+	private func createInfoCell(for indexPath: IndexPath) -> AppCell {
+
+		let cell =  tableView.dequeueReusableCell(for: indexPath) as AppCell
+
+		if let data = viewModel?.getDetailJadwalCellViewModel(atIndex: indexPath.row) {
+			cell.bind(title: data.time ?? "", subtitle: "")
+		}
+
+		return cell
+	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-		switch indexPath.section {
-		case 0:
-			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeHeaderCell
-			cell.layoutIfNeeded()
-			cell.systemLayoutSizeFitting(CGSize(width: view.frame.width, height: 400))
-			cell.backgroundColor = .clear
-			cell.selectionStyle = .none
+		switch JadwalViewModel.Section(rawValue: indexPath.section) {
+		case .some(.header):
+			return createHeaderCell(for: indexPath)
 
-			cell.userEmail.text = "\(self.country ?? "")"
-			let format = DateFormatter()
-			format.timeStyle = .medium
+		case .some(.cell):
+			return createInfoCell(for: indexPath)
 
-			let timer = Timer(timeInterval: 1.0, repeats: true, block: { _ in
-				cell.userFullName.text = format.string(from: Date())
-			})
-
-			RunLoop.current.add(timer, forMode: .common)
-
-			return cell
-		case 1:
-			let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as AppCell
-			cell.backgroundColor = .clear
-
-			cell.selectionStyle = .none
-			cell.textLabel!.textColor = .telegramBlue
-
-			switch indexPath.row {
-			case 0:
-				cell.textLabel?.text = "Fajr        : \(self.eJadwal?.results.datetime.first?.times.fajr ?? "")"
-				return cell
-			case 1:
-				cell.textLabel?.text = "Dhuhr       : \(self.eJadwal?.results.datetime.first?.times.dhuhr ?? "")"
-				return cell
-			case 2:
-				cell.textLabel?.text = "Asr         : \(self.eJadwal?.results.datetime.first?.times.asr ?? "")"
-				return cell
-			case 3:
-				cell.textLabel?.text = "Magrib      : \(self.eJadwal?.results.datetime.first?.times.maghrib ?? "")"
-				return cell
-			case 4:
-				cell.textLabel?.text = "Isha        : \(self.eJadwal?.results.datetime.first?.times.isha ?? "")"
-				return cell
-			default:
-				return AppCell()
-			}
-		default:
+		case .none:
 			return UITableViewCell()
 		}
 

@@ -62,13 +62,3 @@ extension URLSession {
             }.resume()
     }
 }
-
-struct Episode: Codable {
-    var number: Int
-    var title: String
-}
-
-struct Collection: Codable {
-    var title: String
-}
-
